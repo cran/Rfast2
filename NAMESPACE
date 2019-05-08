@@ -14,6 +14,6 @@ multinom.mle, Var, normlog.regs, eachcol.apply, Sort)
 importFrom(Rcpp, evalCpp)
 
 
-export(add.term,benchmark,bic.regs,censpois.mle,censweibull.mle,circ.cor1,circ.cors1,col.waldpoisrat,colGroup,colmeansvars,colQuantile,colTrimMean,covar,diffic,discrim,gammapois.mle,Intersect,is.lower.tri,is.upper.tri,km,logiquant.regs,lud,Merge,mle.lda,mmpc,pc.sel,pooled.colVars,purka.mle,Quantile,rowQuantile,rowTrimMean,sp.logiregs,trim.mean,trunccauchy.mle,truncexpmle,wald.poisrat,welch.tests,zigamma.mle,zil.mle,ziweibull.mle)
+export(add.term,benchmark,bic.regs,censpois.mle,censweibull.mle,circ.cor1,circ.cors1,col.waldpoisrat,colGroup,colmeansvars,colQuantile,colTrimMean,covar,diffic,discrim,gammapois.mle,gee.reg,halfcauchy.mle,Intersect,is.lower.tri,is.upper.tri,km,kumar.mle,logiquant.regs,lud,Merge,mle.lda,mmpc,pc.sel,pooled.colVars,powerlaw.mle,purka.mle,Quantile,reg.mle.lda,rowQuantile,rowTrimMean,sp.logiregs,trim.mean,trunccauchy.mle,truncexpmle,wald.poisrat,walter.ci,welch.tests,zigamma.mle,zil.mle,ziweibull.mle)
 
 S3method(print,benchmark)

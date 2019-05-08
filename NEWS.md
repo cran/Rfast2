@@ -1,6 +1,53 @@
 <h1 align="center"> _Rfast2_ </h1>
 
 > ####New version 
+Date release: **08/05/2019**
+
+***
+
+> ###**_Statistical functions_**  
+>
+>>1. <u> **Improved** </u>(_**by speed, correctness or options**_) 
+>>
+>>  |	      Function	    |     What's new!     |
+>>  | --------------------- | ---------------------- |
+***
+>
+>>2. <u> **New** </u>
+>>
+>>  | 	   Function		    |                           What's new!                  |
+>>  | gee.reg               | Gereneralised estimating equations Gaussian regression |
+>>  | halfcauchy.mle        | MLE of the half Cauchy distribution  |
+>>  | kumar.mle             | MLE of the Kumaraswamy distribution  |
+>>  | powerlaw.mle          | MLE of the power law distribution  |
+>>  | reg.mle.lda           | Regularised maximum likleihood linear discriminant analysis |
+>>  | walter.ci             | Confidence interval for the relative risk using Walter's method |
+>>  | welch.tests           | Many Welch t-tests |
+>>  |              |  |
+
+>
+***
+>
+> ###**_Utility functions_**  
+>
+>>1. <u> **Improved** </u>(_**by speed, correctness or options**_) 
+>>
+>>  | 	    Function	    |                What's new!                  |
+>>  | --------------------- | ------------------------------------------- |
+***
+>
+>>2. <u> **New** </u>
+>>
+>>  | 	   Function		    |                What's new!                |
+>>  | ------------------	| ----------------------------------------- |
+>>  |              |                            |
+
+
+
+
+
+
+> ####Version 0.0.1
 Date release: **19/03/2019**
 
 ***

@@ -421,9 +421,10 @@ void inter_mmp_c(arma::vec& target_vars, arma::mat& ds, const int max_k,
 		res["pvalues"] = pvalues;
 		res["univ"] = univs;
 		res["max_k"] = max_k;
-		res["thres"] = thres;
+		res["alpha"] = thres;
 		res["runtime"] = get_time_spent(begin);
 		inits.size() ? res["n.tests"] = 0 : res["n.tests"] = stats.size();
+        return;
 	}
 	db_print("Initializing idxs.\n");
 	arma::uvec sel_idxs(var_size, arma::fill::zeros);
@@ -457,8 +458,8 @@ void inter_mmp_c(arma::vec& target_vars, arma::mat& ds, const int max_k,
 	db_print("Call: get_sort_idxs\n");
 	arma::uvec tmp_sort_idxs = get_sort_idxs(pvalues, tmp_sel_idxs);
 	arma::uvec tmp_sel_ord_idxs = tmp_sel_idxs(tmp_sort_idxs);
-	res["selected"] = tmp_sel_ord_idxs;
 	db_print("Forming return list.\n");
+	res["selected"] = tmp_sel_ord_idxs;
 	res["stats"] = stats;
 	res["pvalues"] = pvalues;
 	res["univ"] = univs;
@@ -517,7 +518,7 @@ Rcpp::List calc_mmp_c_bp(arma::vec& target_vars, arma::mat& ds, const int limit_
 		std::iota(combn_vals.begin(), combn_vals.end(), 1);
 		for (unsigned int i = 0; i < ds.n_cols; ++i) {
 			int k = 0;
-			double tmp_pvalue = -5;
+			double tmp_pvalue = -5.0;
 			std::vector<double> tmp_pvalues;
 			while (k < (int) ds.n_cols - 1 && k < limit_k && tmp_pvalue < thres_log) {
 				arma::umat combns = find_combn<arma::umat, std::vector<unsigned int>>(combn_vals, ++k);
@@ -576,9 +577,9 @@ Rcpp::List calc_mmp_c(arma::vec& target_vars, arma::mat& ds, int max_k,
 	db_print("Call: inter_mmp_c\n");
 	inter_mmp_c(target_vars, ds, max_k, std::log(thres), method, inits, 
 			hash_on, var_size, stats_kv, pvalues_kv);
-	arma::uvec res_im_idxs = res["selected"];
-	if (bws_on && !res_im_idxs.empty()) {
-		db_print("True: bws_on && !res_im_idxs.empty()\n");
+	if (bws_on && res["selected"] != R_NilValue) {
+        db_print("True: bws_on && res[\"selected\"] != R_NilValue\n");
+        arma::uvec res_im_idxs = res["selected"];
 		arma::uvec res_im_idxs_order = res["selected"];
 		arma::mat ds_of_idxs = ds.cols(res_im_idxs);
 		db_print("Call: calc_mmp_c_bp\n");
