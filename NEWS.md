@@ -1,6 +1,98 @@
 <h1 align="center"> _Rfast2_ </h1>
 
 > ####New version 
+Date release: **28/07/2019**
+
+***
+
+> ###**_Statistical functions_**  
+>
+>>1. <u> **Improved** </u>(_**by speed, correctness or options**_) 
+>>
+>>  |	      Function	    |     What's new!     |
+>>  | bic.regs              | Addition SPML and Weibull regression |
+>>  | pc.sel                | Time improvement |
+>>  | welch.tests           | Time improevement |
+***
+>
+>>2. <u> **New** </u>
+>>
+>>  | 	   Function		    |                           What's new!                 |
+>>  |     cls     			|  Constrained least squares regression         		|
+>>  |     cluster.lm  		|  Linear regression with clustered data         		|
+>>  |     colborel.mle		|  Column-wise MLE of the Borel distribution      		|
+>>  |     collogitnorm.mle	|  Column-wise MLE of the logistic normal distribution  |
+>>  |     collognorm.mle	|  Column-wise MLE of the log-normal distribution 		|
+>>  |     cospml.mle	    |  Column-wise MLE of the SPML distribution      		|
+>>  |     empirical.entropy	|  Empirical entropy estimation with continuous data    |
+>>  |     fbed.reg     		|  FBED variable selection algorithm         	     	|
+>>  |     gumbel.reg  		|  Gumbel regression					         		|
+>>  |     moranI     		|  Moran's I measure of spatial autocorrelation   		|
+>>  |     multinom.reg      |  Multinomial regression						   		|
+>>  |     negbin.reg     	|  Negative binomial regression					   		|
+>>  |     pca        		|  Principal component analysis					   		|
+>>  |     refmeta     		|  Random effects meta-analysis estimation		   		|
+>>  |     simplex.mle     	|  MLE of the simplex distribution				   		|
+>>  |     weib.regs     	|  Many simple weibull regressions				  		|
+>>  |     ztp.reg     		|  zero truncated Poisson regression			   		|
+>>  |     mmpc2     		|  MMPC variable selection algorithm			   		|
+>
+***
+>
+> ###**_Utility functions_**  
+>
+>>1. <u> **Improved** </u>(_**by speed, correctness or options**_) 
+>>
+>>  | 	    Function	    |                What's new!                  |
+>>  | --------------------- | ------------------------------------------- |
+>>  | 		|	 			  |
+***
+>
+>>2. <u> **New** </u>
+>>
+>>  | 	   Function		    |                What's new!                |
+>>  | ------------------	| ----------------------------------------- |
+>>  |  is.skew.symmetric    |  Checking if the given matrix is skew-symmetric. |
+
+
+> ####Version 0.03
+Date release: **08/05/2019**
+
+***
+
+> ###**_Statistical functions_**  
+>
+>>1. <u> **Improved** </u>(_**by speed, correctness or options**_) 
+>>
+>>  |	      Function	    |     What's new!     |
+>>  | --------------------- | ---------------------- |
+***
+>
+>>2. <u> **New** </u>
+>>
+>>  | 	   Function		    |                           What's new!                  |
+>>  |              			|  														|
+
+>
+***
+>
+> ###**_Utility functions_**  
+>
+>>1. <u> **Improved** </u>(_**by speed, correctness or options**_) 
+>>
+>>  | 	    Function	    |                What's new!                  |
+>>  | --------------------- | ------------------------------------------- |
+>>  | benchmark				|	fix a bug in printing names. 			  |
+***
+>
+>>2. <u> **New** </u>
+>>
+>>  | 	   Function		    |                What's new!                |
+>>  | ------------------	| ----------------------------------------- |
+>>  |              |                            |
+
+
+> ####Version 0.0.2
 Date release: **08/05/2019**
 
 ***

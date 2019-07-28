@@ -21,12 +21,13 @@ A matrix with the indendent variables.
 }
 \item{family}{
 The family of the regression models. "normal", "binomial", "poisson",
-"multinomial" or "normlog" (Gaussian regression with log link).
+"multinomial", "normlog" (Gaussian regression with log link), "spmpl" (SPML regression)
+or "weibull" for Weibull regression.
 }
 }
 
 \details{
-Many simple geometric regressions are fitted and the BIC of every model is computed.
+Many simple univariate regressions are fitted and the BIC of every model is computed.
 }
 
 \value{
@@ -36,7 +37,7 @@ A vector with the BIC of each regression model.
 \author{
 Michail Tsagris
 
-R implementation and documentation: Michail Tsagris <mtsagris@yahoo.gr>
+R implementation and documentation: Michail Tsagris \email{mtsagris@yahoo.gr}.
 }
 
 %\note{

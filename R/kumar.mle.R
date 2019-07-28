@@ -1,3 +1,4 @@
+#[export]
 kumar.mle <- function(x, tol = 1e-07, maxiters = 50) {
 
   n <- length(x)

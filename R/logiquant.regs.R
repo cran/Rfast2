@@ -1,3 +1,4 @@
+#[export]
 logiquant.regs <- function(y, x, logged = FALSE) {
   m <- Rfast::med(y)
   y[y > m] <- 1

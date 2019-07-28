@@ -1,3 +1,4 @@
+#[export]
 halfcauchy.mle <- function(x, tol = 1e-07, maxiters = 50) {
   n <- length(x)
   ea <- 0.5 * ( Rfast::nth(x, 3 * n/4) - Rfast::nth(x, n/4) )

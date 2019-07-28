@@ -2,10 +2,10 @@
 \alias{censweibull.mle}
 
 \title{
-MLE of the zero inflated and censored Weibull distribution}
+MLE of the censored Weibull distribution}
 
 \description{
-MLE of the zero inflated and censored Weibull distribution.
+MLE of the censored Weibull distribution.
 }
 
 \usage{
@@ -43,13 +43,13 @@ Fritz Scholz (1996). Maximum Likelihood Estimation for
 Type I Censored Weibull Data Including Covariates. 
 Technical report. ISSTECH-96-022, Boeing Information & Support Services, P.O. Box 24346, MS-7L-22.
 
-https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwiF1qKkv6bfAhWJCuwKHUd5DL0QFjAAegQIABAC&url=http%3A%2F%2Ffaculty.washington.edu%2Ffscholz%2FReports%2Fweibcensmle.pdf&usg=AOvVaw1Gg62QuIjxP9txc6iGrE67
-}
+\url{ http://faculty.washington.edu/fscholz/Reports/weibcensmle.pdf }
 
+}
 \author{
 Michail Tsagris
 
-R implementation and documentation: Michail Tsagris <mtsagris@yahoo.gr> and Manos Papadakis <papadakm95@gmail.com>.
+R implementation and documentation: Michail Tsagris \email{mtsagris@yahoo.gr}.
 }
 %\note{
 %%  ~~further notes~~

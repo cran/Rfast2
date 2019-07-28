@@ -50,6 +50,3 @@ x <- matrix(runif(10*10),10,10)
 b<-lud(x)
 
 }
-
-\keyword{ Split the matrix in lower,upper triangular and diagonal }
-

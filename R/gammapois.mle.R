@@ -1,6 +1,8 @@
+#[export]
 gammapois.mle <- function(x, tol = 1e-07) {
   
   n <- length(x)
+  #[export]
   slx <- sum( lgamma(x + 1) )
   sx <- sum(x) 
   m <- sx/n

@@ -1,3 +1,4 @@
+#[export]
 truncexpmle <- function(x, b, tol = 1e-07) {
   
   trexp <- function(lam, sx, b, n) {

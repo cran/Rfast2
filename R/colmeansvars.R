@@ -1,3 +1,4 @@
+#[export]
 colmeansvars <- function(x, std = FALSE, parallel = FALSE) {
     m <- Rfast::colsums(x, parallel = parallel)
     n <- dim(x)[1]

@@ -1,3 +1,4 @@
+#[export]
 censpois.mle <- function(x, tol = 1e-07) {
   ca <- min(x)
   z <- 0:ca

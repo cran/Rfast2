@@ -1,3 +1,4 @@
+#[export]
 purka.mle <- function(x, tol = 1e-07) {
   if ( !is.matrix(x) )  x <- cbind( cos(x), sin(x) )
   p <- dim(x)[2]

@@ -1,3 +1,4 @@
+#[export]
 km <- function(ti, di) {
   x <- cbind(ti, di)
   x <- x[order(ti), ]

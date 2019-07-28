@@ -1,15 +1,16 @@
 
 
-
+#[export]
 benchmark<-function(...,times,envir=parent.frame(),order=NULL){
     exprs<-as.list(match.call(expand.dots = FALSE)$...)
     nm<-names(exprs)
     index_to_empty_names<-which(nm=="")
-    if(length(index_to_empty_names)==0)# if none of the expression has name
+    if(is.null(nm))# if none of the expression has name
         nm<-sapply(exprs,function(x){paste(deparse(x),collapse = "")})
-    else # get only the expressions that do not have a name
-        nm[index_to_empty_names]<-sapply(exprs[index_to_empty_names],function(x){paste(deparse(x),collapse = "")})
-    
+    else{
+        if(length(index_to_empty_names)>0)# get only the expressions that do not have a name
+            nm[index_to_empty_names]<-sapply(exprs[index_to_empty_names],function(x){paste(deparse(x),collapse = "")})
+    }
     if(is.null(order))
         order<-sample(length(exprs),length(exprs))
     else if(length(order)!=length(exprs))

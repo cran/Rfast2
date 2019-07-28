@@ -1,3 +1,4 @@
+#[export]
 censweibull.mle <- function(x, di, tol = 1e-07) {
   y <- log(x)
   y1 <- y[di == 1]

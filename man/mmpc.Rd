@@ -1,14 +1,11 @@
-\name{Max-Min Parents and Children}
+\name{Max-Min Parents and Children variable selection algorithm for continuous responses}
 \alias{mmpc}
 \title{
-Max-Min Parents and Children
+Max-Min Parents and Children variable selection algorithm for continuous responses
 }
 
 \description{
-The mmpc algorithm follows a forward-backward filter approach for 
-feature selection without the generation of multiple feature
-subsets. The end result is the provision of a minimal, 
-highly-predictive, statistically-equivalent dataset.
+Max-Min Parents and Children variable selection algorithm for continuous responses.
 }
 
 \usage{

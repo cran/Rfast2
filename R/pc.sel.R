@@ -1,8 +1,9 @@
-pc.sel <- function(y, x, alpha = 0.05) {
+#[export]
+pc.sel <- function(y, x, ystand = TRUE, xstand = TRUE, alpha = 0.05) {
   
   runtime <- proc.time()
-  y <- ( y - mean(y) ) / Rfast::Var(y, std = TRUE)
-  x <- Rfast::standardise(x)
+  if (ystand)  y <- ( y - mean(y) ) / Rfast::Var(y, std = TRUE)
+  if (xstand)  x <- Rfast::standardise(x)
   dm <- dim(x)
   n <- dm[1]     ;      p <- dm[2]
   ina <- 1:p
@@ -10,7 +11,7 @@ pc.sel <- function(y, x, alpha = 0.05) {
   nu <- n - 1
 
   k <- 0
-  r <- abs( cov(y, x) )
+  r <- abs( Rfast::eachcol.apply(x, y)/nu )
   crit <- exp(2 * qt(1 - alpha/2, n - 3) / sqrt(n - 3) )
   crit <- (crit - 1)/(crit + 1)
   sela <- which( r > crit )

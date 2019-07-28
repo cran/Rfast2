@@ -1,3 +1,4 @@
+#[export]
 circ.cors1 <- function(theta, phi, pvalue = FALSE) {
   ## theta and phi are angular data in degrees or radians
   ## by default they are in degrees

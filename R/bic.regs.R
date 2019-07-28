@@ -1,3 +1,4 @@
+#[export]
 bic.regs <- function(y, x, family = "normal") {
   
   n <- dim(x)[1]
@@ -32,9 +33,17 @@ bic.regs <- function(y, x, family = "normal") {
     stat <- Rfast::normlog.regs(y, x)[, 1]
     devi <- ini/( stat/(n - 2) + 1 ) 
     bic <- n * log(2 * pi) + n + n * log(devi/n) + 3 * log(n)   
-   
-  }
 
+  } else if ( identical(family, "spml") ) {
+    ini <- Rfast::spml.mle(y)$loglik
+    stat <- Rfast::spml.regs(y, x)[, 1]
+    bic <-  - stat - 2 * ini + 4 * log(n)
+
+  } else if ( identical(family, "weibull") ) {
+    ini <- Rfast::weibull.mle(y)$loglik
+    stat <- Rfast2::weib.regs(y, x)[, 1]
+    bic <-  - stat - 2 * ini + 3 * log(n)
+  }
   bic
 }
     

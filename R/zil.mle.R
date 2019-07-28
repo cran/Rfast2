@@ -1,3 +1,4 @@
+#[export]
 zil.mle <- function(x) {
 
   n <- length(x)

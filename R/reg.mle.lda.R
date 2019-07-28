@@ -1,3 +1,4 @@
+#[export]
 reg.mle.lda <- function(xnew, x, ina, lambda) {
     s <- crossprod(x)
     ni <- tabulate(ina)

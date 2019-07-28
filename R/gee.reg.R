@@ -1,3 +1,4 @@
+#[export]
 gee.reg <- function(y, x, id, tol = 1e-07, maxiters = 100) {
 
   Rinv <- function(a, ni) {
@@ -19,7 +20,7 @@ gee.reg <- function(y, x, id, tol = 1e-07, maxiters = 100) {
 
   b1 <- solve(crossprod(x), Rfast::eachcol.apply(x, y) )
   e <- y - x %*% b1
-  com <- Rfast::group.sum(e^2, id)
+  com <- Rfast::group(e^2, id)
   phi <- sum( com ) / n
   a1 <- numeric(K)
   for (j in 1:K)  a1[j] <- sum( tcrossprod( e[id == j] ) )
@@ -43,7 +44,7 @@ gee.reg <- function(y, x, id, tol = 1e-07, maxiters = 100) {
     i <- i + 1
     b1 <- b2
     e <- y - x %*% b1
-    com <- Rfast::group.sum(e^2, id)
+    com <- Rfast::group(e^2, id)
     phi <- sum( com ) / n
     for (j in 1:K)  a1[j] <- sum( tcrossprod( e[id == j] ) )
     a <- sum( a1 - com ) / Ni / phi

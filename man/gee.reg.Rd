@@ -77,7 +77,7 @@ R implementation and documentation: Michail Tsagris <mtsagris@yahoo.gr>
 %}
 
 \seealso{
-\code{ \link{covar}, \link{welch.tests} }
+\code{ \link{cluster.lm}, \link{covar}, \link{welch.tests} }
 }
 
 \examples{

@@ -1,3 +1,4 @@
+#[export]
 trunccauchy.mle <- function (x, a, b, tol = 1e-07) {
     n <- length(x)
     m <- Rfast::med(x)

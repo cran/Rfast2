@@ -12,6 +12,34 @@ using namespace std;
 using namespace arma;
 using namespace Rcpp;
 
+//[[Rcpp::plugins(openmp)]]
+//[[Rcpp::plugins(cpp11)]]
+
+List glm_poisson_2(mat x, vec y, const double lgmy,const double tol, const int maxiters){
+  const unsigned int n=x.n_rows,pcols=x.n_cols,d=pcols;
+  colvec b_old(d,fill::zeros),b_new(d),L1(d),yhat(n),m(n);
+  mat L2,x_tr(n,pcols);
+  double dif;
+  b_old(0)=lgmy;
+  x_tr=x.t();
+  int i=2;
+  for(dif=1.0;dif>tol;){
+    yhat=x*b_old;
+    m=(exp(yhat));
+    L1=x_tr*(y-m);
+    L2=x.each_col()%m;
+    L2=x_tr*L2;
+    b_new=b_old+solve(L2,L1,solve_opts::fast);
+    dif=sum(abs(b_new-b_old));
+    b_old=b_new;
+    if(++i==maxiters)
+      break;
+  }
+  List ret;
+  ret["m"] = m;
+  ret["be"] = b_old;
+  return ret;
+}
 
 vec glm_logistic2(mat x, vec y,double *ini, vec yminmy, const double tol, const int maxiters){
   int n = x.n_rows, d = x.n_cols,i;
@@ -106,6 +134,7 @@ vec logistic_only2(mat x, vec y, double *ini,vec yminmy,const double tol, const 
   int j;
   colvec be(2),expyhat(n),W(n,fill::zeros),x_col(n),x2_col(n),de(n);
   mat yhat(n,1),p(n,1);
+  colvec::iterator expyhatiter;
   vec F(pcols);
   double d1,d2,t,dera2=0.0,sp=0.0,derb=0.0,dera=0.0,derab=0.0,derb2=0.0;
   const double sy=ini[3],lgmy=ini[1],d0 = ini[0];
@@ -267,7 +296,7 @@ double weib_reg2(vec y, mat x, vec ini, const double sly, const double tol, cons
     lik2 = n*k+(ek-1)*sly+ek*sum(lam)-sum(com);
   }
 
-  return  n * k + (ek - 1) * sly + ek * sum(lam) - sum(com);
+  return  lik2;
 }
 
 vec qpois_reg2(mat x, vec y,const double lgmy, const double ylogy,const double tol, const int maxiters){
@@ -344,220 +373,6 @@ vec prop_reg2(mat x, vec y, double *ini,vec yminmy, const double tol,const int m
   return ret;
 }
 
-/*
-mat add_term_c(const vec &y, const mat &xinc, const mat &xout, const double devi_0,
-                       const std::string type = "logistic", const double tol = 1e-07, const bool logged = false, const bool parallel = 1, const int maxiters = 100, const double ret_stat = 0){
-  int nrows = xinc.n_rows;
-  int selectedColumnSize = xinc.n_cols;
-
-  int idxsz = xout.n_cols, inttype,dof_mult;
-  mat out, u, my;
-
-  vec ini;
-  double D0,ylogy;
-  rowvec m0,b0;
-
-  if(ret_stat)
-	  out = mat(idxsz, 2);
-  else
-	  out = mat(idxsz, 1);
-
-  if(type == "logistic"){
-    inttype = 1;
-    my = mat(4,1);
-    double sumy = sum(y), mny = sumy/nrows, lmy=log(mny),l1mmy = log(1-mny);
-    D0 = -2*(sumy*lmy+(nrows-sumy)*l1mmy);
-    my[0] = D0;
-    my[1] = lmy-l1mmy;
-    my[2] = mny*(1-mny);
-    my[3] = sumy;
-    ini = y-mny;
-  }
-  else if(type=="poisson"){
-    inttype = 2;
-    D0 = log(mean(y));
-    ylogy = calcylogy(y, nrows);
-  }
-  else if(type=="weibull"){
-    inttype = 3;
-
-    ini = weibull_mle2(y, nrows, tol, maxiters);
-
-    ylogy = sum_with<log,vec>(y);
-  }
-  else if(type=="qlogistic"){
-    inttype = 4;
-    my = mat(5,1);
-    double sumy = sum(y), mny = sumy/nrows, lmy=log(mny),l1mmy = log(1-mny);
-    D0 = sumy*lmy+(nrows-sumy)*l1mmy;
-    my[0] = D0;
-    my[1] = lmy-l1mmy;
-    my[2] = mny*(1-mny);
-    ini = y-mny;
-
-    my[3] = calcylogy(y,nrows)+calcylogy(1-y, nrows);
-    my[4] = sumy;
-  }
-  else if(type=="qpoisson"){
-    inttype = 5;
-    D0 = log(mean(y));
-    ylogy = calcylogy(y, nrows);
-  }
-  else if(type=="spml"){
-    inttype = 6;
-
-    u = mat(nrows,5);
-    u.col(0) = cos(y);
-    u.col(1) = sin(y);
-    u.col(2) = u.col(0)%u.col(0);
-    u.col(3) = u.col(0)%u.col(1);
-    u.col(4) = u.col(1)%u.col(1);
-
-  }
-  else if(type=="multinom"){
-      inttype = 7;
-
-      my = design_matrix_helper<mat,NumericVector>(as<NumericVector>(wrap(y)));
-      my.shed_col(0);
-      m0 = mean(my);
-      b0 = log(m0/(1-m0));
-
-      u = my.each_row()-m0;
-      dof_mult = my.n_cols;
-  }
-  else if(type=="normlog"){
-    inttype = 8;
-    ini = log(y + 0.1);
-  }
-  else{
-    stop("Unknown type, Supported types are: 'logistic', 'poisson', 'weibull', 'qlogistic', 'qpoisson', 'spml', 'multinom', 'normlog'.\n");
-  }
-
-  if(parallel){
-  #ifdef _OPENMP
-  #pragma omp parallel
-  {
-  #endif
-    mat tmpmat = resize(xinc, nrows, selectedColumnSize+1);
-    vec tmpvec;
-	  double out_0, out_1;
-    #ifdef _OPENMP
-    #pragma omp for
-    #endif
-    for(int i = 0; i < idxsz; i++){
-      tmpmat.col(selectedColumnSize) = xout.col(i);
-      if(inttype == 1){
-        out_0 = devi_0 - glm_logistic3(tmpmat, y,&my[0],ini, tol,maxiters);
-
-        out_1 = R::pchisq(out_0, 1, false, logged);
-      }
-      else if(inttype == 2){//2.0*(ylogy-sum(y%yhat));
-        out_0 = devi_0 - (2*ylogy+glm_poisson3( tmpmat, y, D0, tol,maxiters));
-        out_1 = R::pchisq(out_0, 1, false, logged);
-      }
-      else if(inttype == 3){
-        // here ylogy is sum(log(y))
-        out_0 = 2*(weib_reg2(y, tmpmat, ini, ylogy, tol, maxiters) - devi_0);
-        out_1 = R::pchisq(out_0, 1, false, logged);
-      }
-      else if(inttype == 4){ // same normlog_reg
-        tmpvec = prop_reg2(tmpmat, y, &my[0], ini,tol, maxiters);
-        out_0 = tmpvec[2];
-        out_1 = R::pchisq(out_0, 1, false, logged);
-      }
-      else if(inttype == 5){
-        tmpvec = qpois_reg2(tmpmat, y, D0, ylogy,tol,maxiters);
-        out_0 = (devi_0 - tmpvec(0))/tmpvec(1);
-        out_1 = R::pf(out_0, 1, nrows-selectedColumnSize-1, false, logged);
-      }
-      else if(inttype == 6){ // spml
-        out_0 = 2*(spml_reg2(u, tmpmat, tol, maxiters) - devi_0);
-        out_1 = R::pchisq(out_0, 2, false, logged);
-      }
-      else if(inttype==7){ // multinom
-        out_0 = 2 * (multinom_reg2(my, tmpmat, u, m0, b0, tol, maxiters) - devi_0);
-
-        out_1 = R::pchisq(out_0, dof_mult, false, logged);
-      }
-      else{
-        // normlog_reg
-        tmpvec = normlog_reg2(y, tmpmat, ini, tol, maxiters);
-
-        out_0 = (devi_0 - tmpvec(0))/tmpvec(1);
-        out_1 = R::pf(out_0, 1, nrows-selectedColumnSize-1, false, logged);
-      }
-
-  	  if(ret_stat){
-        out(i,0) = out_0;
-        out(i,1) = out_1;
-  	  }
-  	  else{
-  		  out(i,0) = out_1;
-  	  }
-    }
-    #ifdef _OPENMP
-    }
-    #endif
-  }
-  else{
-    mat tmpmat = resize(xinc, nrows, selectedColumnSize+1);
-    vec tmpvec;
-	  double out_0, out_1;
-	  for(int i = 0; i < idxsz; i++){
-	    tmpmat.col(selectedColumnSize) = xout.col(i);
-	    if(inttype == 1){
-	      out_0 = devi_0 - glm_logistic3(tmpmat, y,&my[0],ini, tol,maxiters);
-
-	      out_1 = R::pchisq(out_0, 1, false, logged);
-	    }
-	    else if(inttype == 2){//2.0*(ylogy-sum(y%yhat));
-	      out_0 = devi_0 - (2*ylogy+glm_poisson3( tmpmat, y, D0, tol,maxiters));
-	      out_1 = R::pchisq(out_0, 1, false, logged);
-	    }
-	    else if(inttype == 3){
-	      // here ylogy is sum(log(y))
-	      out_0 = 2*(weib_reg2(y, tmpmat, ini, ylogy, tol, maxiters) - devi_0);
-	      out_1 = R::pchisq(out_0, 1, false, logged);
-	    }
-	    else if(inttype == 4){ // same normlog_reg
-	      tmpvec = prop_reg2(tmpmat, y, &my[0], ini,tol, maxiters);
-	      out_0 = tmpvec[2];
-	      out_1 = R::pchisq(out_0, 1, false, logged);
-	    }
-	    else if(inttype == 5){
-	      tmpvec = qpois_reg2(tmpmat, y, D0, ylogy,tol,maxiters);
-	      out_0 = (devi_0 - tmpvec(0))/tmpvec(1);
-	      out_1 = R::pf(out_0, 1, nrows-selectedColumnSize-1, false, logged);
-	    }
-	    else if(inttype == 6){ // spml
-	      out_0 = 2*(spml_reg2(u, tmpmat, tol, maxiters) - devi_0);
-	      out_1 = R::pchisq(out_0, 2, false, logged);
-	    }
-	    else if(inttype==7){ // multinom
-	      out_0 = 2 * (multinom_reg2(my, tmpmat, u, m0, b0, tol, maxiters) - devi_0);
-
-	      out_1 = R::pchisq(out_0, dof_mult, false, logged);
-	    }
-	    else{
-	      // normlog_reg
-	      tmpvec = normlog_reg2(y, tmpmat, ini, tol, maxiters);
-
-	      out_0 = (devi_0 - tmpvec(0))/tmpvec(1);
-	      out_1 = R::pf(out_0, 1, nrows-selectedColumnSize-1, false, logged);
-	    }
-
-  	  if(ret_stat){
-    		out(i,0) = out_0;
-    		out(i,1) = out_1;
-  	  }
-  	  else{
-  		  out(i,0) = out_1;
-  	  }
-    }
-  }
-  return out;
-}
-*/
 vec prop_regs2(mat x, vec y,double *ini, vec yminmy, const double tol, const int maxiters){
   const unsigned int n=x.n_rows,pcols=x.n_cols;
 
@@ -1171,11 +986,12 @@ vec spml_regs2(mat pu, mat x, const double tol, const int maxiters, const bool p
   int n = x.n_rows, D = x.n_cols;
 
   vec ci2(pu.begin_col(2),n,false), cisi(pu.begin_col(3),n,false), si2(pu.begin_col(4),n,false);
-  mat u(pu.begin(),n,D,false);
+  mat u(pu.begin(),n,2,false);
   double f = -0.5, con = 2.506628274631;
 
   vec one(n,fill::ones);
-  double ini = spml_mle2(u,ci2,cisi,si2,n,1e-09,maxiters);
+  double ini = spml_mle2(u,ci2,cisi,si2,n,tol,maxiters);
+
   vec ret(D);
 
   if(parallel){

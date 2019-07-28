@@ -1,3 +1,4 @@
+#[export]
 powerlaw.mle <- function(x) {
   n <- length(x)
   x1 <- min(x)

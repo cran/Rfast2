@@ -1,3 +1,4 @@
+#[export]
 col.waldpoisrat <- function(x, y, alpha = 0.05) {
   n1 <- dim(x)[1]
   n2 <- dim(y)[1]

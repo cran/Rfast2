@@ -1,3 +1,4 @@
+#[export]
 walter.ci <- function(x1, x2, n1, n2, a = 0.05) {
   x <- x1 + 0.5
   y <- x2 + 0.5

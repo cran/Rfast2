@@ -1,3 +1,4 @@
+#[export]
 zigamma.mle <- function(x, tol = 1e-07) {
   n <- length(x)
   x1 <- x[x > 0]

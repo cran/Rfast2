@@ -9,7 +9,7 @@ Variable selection using the PC-simple algorithm.
 }
 
 \usage{
-pc.sel(y, x, alpha = 0.05)
+pc.sel(y, x, ystand = TRUE, xstand = TRUE, alpha = 0.05)
 }
 
 \arguments{
@@ -18,6 +18,12 @@ A numerical vector with continuous data.
 }
 \item{x}{
 A matrix with numerical data; the independent variables, of which some will probably be selected.
+}
+\item{ystand}{
+If this is TRUE the response variable is centered. The mean is subtracted from every value.
+}
+\item{xstand}{
+If this is TRUE the independent variables are standardised. 
 }
 \item{alpha}{
 The significance level.
@@ -46,15 +52,14 @@ The runtime of the algorithm.
 
 \references{
 Buhlmann P., Kalisch M. and Maathuis M. H. (2010). Variable selection in high-dimensional linear models:
-partially faithful distributions and the PC-simple algorithm. Biometrika, 97(2), 261-278.
-
-https://arxiv.org/pdf/0906.3204.pdf
+partially faithful distributions and the PC-simple algorithm. Biometrika, 97(2): 261-278.
+\url{ https://arxiv.org/pdf/0906.3204.pdf }
 }
 
 \author{
 Michail Tsagris
 
-R implementation and documentation: Michail Tsagris <mtsagris@yahoo.gr> 
+R implementation and documentation: Michail Tsagris \email{mtsagris@yahoo.gr} 
 }
 
 %\note{
@@ -67,8 +72,8 @@ R implementation and documentation: Michail Tsagris <mtsagris@yahoo.gr>
 }
 
 \examples{
-y <- rnorm(200)
-x <- matrix( rnorm(200 * 50), ncol = 50)
+y <- rnorm(100)
+x <- matrix( rnorm(100 * 50), ncol = 50)
 a <- pc.sel(y, x)
 }
 

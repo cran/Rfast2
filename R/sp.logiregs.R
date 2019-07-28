@@ -1,3 +1,4 @@
+#[export]
 sp.logiregs <- function(y, x, logged = FALSE) {
   n <- dim(x)[1]
   p <- sum(y)/n

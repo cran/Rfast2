@@ -1,3 +1,4 @@
+#[export]
 mle.lda <- function(xnew, x, ina) {
   s <- crossprod(x)
   ni <- tabulate(ina)

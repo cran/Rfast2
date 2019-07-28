@@ -9,7 +9,7 @@ Many Welch tests.
 }
 
 \usage{
-welch.tests(y, x, logged = FALSE)
+welch.tests(y, x, logged = FALSE, parallel = FALSE)
 }
 
 \arguments{
@@ -23,6 +23,9 @@ data.frame with factor variables, the user must use a matrix with integers.
 }
 \item{logged}{
 Should the p-values be returned (FALSE) or their logarithm (TRUE)?
+}
+\item{parallel}{
+If you want to run the function in parallel set this equal to TRUE.
 }
 }
 

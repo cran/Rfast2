@@ -1,4 +1,4 @@
-
+#[export]
 colGroup<-function(x,ina,method="sum",names=TRUE, std = FALSE){
 	unique_ina<-unique(ina)
 	

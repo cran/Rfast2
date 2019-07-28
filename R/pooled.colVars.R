@@ -1,3 +1,4 @@
+#[export]
 pooled.colVars <- function (x, ina, std = FALSE) {
     m <- rowsum(x, ina)
     m2 <- rowsum(x^2, ina)

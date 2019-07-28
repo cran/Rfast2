@@ -1,3 +1,4 @@
+#[export]
 wald.poisrat <- function(x, y, alpha = 0.05) {
   n1 <- length(x)
   n2 <- length(y)
