@@ -17,12 +17,13 @@ struct pr{
   pr(f first=0,s second=0):first(first),second(second),is_good(false){}
 };
 
-typedef double (*Unary_Function)(double); // unary function
-typedef double (*Binary_Function)(double,double); // binary function
-typedef double (*Binary_Function_mat)(mat,double); // binary function
-
 template<class T,class ...Args>
 using Mfunction = T(*)(T,Args...);
+
+using Unary_Function=Mfunction<double>; // typedef double (*Unary_Function)(double); // unary function
+using Binary_Function=Mfunction<double,double>; // typedef double (*Binary_Function)(double,double); // binary function
+using Binary_Function_mat=Mfunction<mat,double>; // typedef double (*Binary_Function_mat)(mat,double); // binary function
+
 
 /*
  * F: unary function

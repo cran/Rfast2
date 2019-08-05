@@ -10,10 +10,10 @@ using namespace std;
 * ? is a binary function
 * a, b are iterators (should be same size)
 */
-template<Binary_Function B, typename T1, typename T2>
+template<Binary_Function B, class T1, class T2>
 inline double apply_funcs(T1 a, T2 b, const int sz){
 	double ret = 0.0;
-	for(int i=0;i<sz;i++,a++,b++){
+	for(int i=0;i<sz;i++,++a,++b){
 		ret+=B(*a, *b);
 	}
 	return ret;
@@ -28,7 +28,7 @@ inline double apply_funcs(T1 a, T2 b, const int sz){
 template<Unary_Function F0, Unary_Function F1, Binary_Function B, Unary_Function F2, typename T1, typename T2>
 inline double apply_funcs(T1 a, T2 b, const int sz){
 	double ret = 0.0;
-	for(int i=0;i<sz;i++,a++,b++){
+	for(int i=0;i<sz;i++,++a,b++){
 		ret+=F0( B(F1(*a), F2(*b)) );
 	}
 	return ret;
@@ -45,17 +45,17 @@ template<Unary_Function F0, Unary_Function F1, Binary_Function B, typename T1, t
 inline double apply_funcs(T1 a, T2 b, const int sz, const int type){
 	double ret = 0.0;
 	if(type==0){
-		for(int i=0;i<sz;i++,a++,b++){
+		for(int i=0;i<sz;i++,++a,++b){
 			ret+=B(F0(*a), F1(*b));
 		}
 	}
 	else if(type==1){
-		for(int i=0;i<sz;i++,a++,b++){
+		for(int i=0;i<sz;i++,++a,++b){
 			ret+=F0( B(*a, F1(*b)) );
 		}
 	}
 	else{
-		for(int i=0;i<sz;i++,a++,b++){
+		for(int i=0;i<sz;i++,++a,++b){
 			ret+=F0( B(F1(*a), *b) );
 		}
 	}
@@ -73,17 +73,17 @@ template<Unary_Function F, Binary_Function B, typename T1, typename T2>
 inline double apply_funcs(T1 a, T2 b, const int sz, const int type){
 	double ret = 0.0;
 	if(type==0){
-		for(int i=0;i<sz;i++,a++,b++){
+		for(int i=0;i<sz;i++,++a,++b){
 			ret+=F( B(*a, *b) );
 		}
 	}
 	else if(type==1){
-		for(int i=0;i<sz;i++,a++,b++){
+		for(int i=0;i<sz;i++,++a,++b){
 			ret+=B(F(*a), *b);
 		}
 	}
 	else{
-		for(int i=0;i<sz;i++,a++,b++){
+		for(int i=0;i<sz;i++,++a,++b){
 			ret+=B(*a, F(*b));
 		}
 	}
@@ -93,7 +93,7 @@ inline double apply_funcs(T1 a, T2 b, const int sz, const int type){
 template<Binary_Function B, typename T1, typename T2, typename T3>
 inline void apply_funcs(T1 a, T2 b, T3 out, const int sz){
 
-  for(int i=0;i<sz;i++,a++,b++,out++){
+  for(int i=0;i<sz;i++,++a,++b,++out){
     *out=B(*a, *b);
   }
   return;
@@ -107,7 +107,7 @@ inline void apply_funcs(T1 a, T2 b, T3 out, const int sz){
 */
 template<Unary_Function F0, Unary_Function F1, Binary_Function B, Unary_Function F2, typename T1, typename T2, typename T3>
 inline void apply_funcs(T1 a, T2 b, T3 out, const int sz){
-	for(int i=0;i<sz;i++,a++,b++, out++){
+	for(int i=0;i<sz;i++,++a,++b, ++out){
 		*out=F0( B(F1(*a), F2(*b)) );
 	}
 	return;
@@ -123,17 +123,17 @@ inline void apply_funcs(T1 a, T2 b, T3 out, const int sz){
 template<Unary_Function F0, Unary_Function F1, Binary_Function B, typename T1, typename T2, typename T3>
 inline void apply_funcs(T1 a, T2 b, T3 out, const int sz, const int type){
 	if(type==0){
-		for(int i=0;i<sz;i++,a++,b++,out++){
+		for(int i=0;i<sz;i++,++a,++b,++out){
 			*out=B(F0(*a), F1(*b));
 		}
 	}
 	else if(type==1){
-		for(int i=0;i<sz;i++,a++,b++,out++){
+		for(int i=0;i<sz;i++,++a,++b,++out){
 			*out=F0( B(*a, F1(*b)) );
 		}
 	}
 	else{
-		for(int i=0;i<sz;i++,a++,b++,out++){
+		for(int i=0;i<sz;i++,++a,++b,++out){
 			*out=F0( B(F1(*a), *b) );
 		}
 	}
@@ -150,17 +150,17 @@ inline void apply_funcs(T1 a, T2 b, T3 out, const int sz, const int type){
 template<Unary_Function F, Binary_Function B, typename T1, typename T2, typename T3>
 inline void apply_funcs(T1 a, T2 b, T3 out, const int sz, const int type){
 	if(type==0){
-		for(int i=0;i<sz;i++,a++,b++, out++){
+		for(int i=0;i<sz;i++,++a,++b,++out){
 			*out=F( B(*a, *b) );
 		}
 	}
 	else if(type==1){
-		for(int i=0;i<sz;i++,a++,b++,out++){
+		for(int i=0;i<sz;i++,++a,++b,++out){
 			*out=B(F(*a), *b);
 		}
 	}
 	else{
-		for(int i=0;i<sz;i++,a++,b++,out++){
+		for(int i=0;i<sz;i++,++a,++b,++out){
 			*out=B(*a, F(*b));
 		}
 	}

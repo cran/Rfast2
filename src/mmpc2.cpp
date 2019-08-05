@@ -332,7 +332,7 @@ List mmpc2(vec y,mat x,int max_k = 3,const double threshold = 0.05,const string 
         //errors("Enter 1 selected");
         StringVector a(max_k);
         for(int i=0;i<max_k;++i)
-            a[i]="kappa="+(i+1);
+            a[i]="kappa="+to_string(i+1);
         //kapa_pval.names()=a;
         devi_0 = calc_devi_0(y,Cbind(oness,x.col(sela(0))),ini,maxiters,tol,test,lgmy,my,sy,d1,ylogy);
         //errors(336," ",devi_0);

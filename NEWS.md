@@ -1,6 +1,44 @@
 <h1 align="center"> _Rfast2_ </h1>
 
 > ####New version 
+Date release: **05/08/2019**
+
+***
+
+> ###**_Statistical functions_**  
+>
+>>1. <u> **Improved** </u>(_**by speed, correctness or options**_) 
+>>
+>>  |	      Function	      |     What's new!     |
+>>  | ----------------------  | ------------------- |
+>>  | 			              |                     |
+***
+>
+>>2. <u> **New** </u>
+>>
+>>  | 	   Function 	   |             What's new!             |
+>>  | -------------------- | ----------------------------------- |
+>>  |     				   |  									 |
+>
+***
+>
+> ###**_Utility functions_**  
+>
+>>1. <u> **Improved** </u>(_**by speed, correctness or options**_) 
+>>
+>>  | 	    Function	    |                What's new!                  |
+>>  | --------------------- | ------------------------------------------- |
+>>  | 						|								 			  |
+***
+>
+>>2. <u> **New** </u>
+>>
+>>  | 	   Function		    |                What's new!                |
+>>  | ------------------	| ----------------------------------------- |
+>>  |                       |  											|
+
+
+> ####Version 
 Date release: **28/07/2019**
 
 ***
@@ -10,6 +48,7 @@ Date release: **28/07/2019**
 >>1. <u> **Improved** </u>(_**by speed, correctness or options**_) 
 >>
 >>  |	      Function	    |     What's new!     |
+>>  | --------------------- | ------------------------------------------- |
 >>  | bic.regs              | Addition SPML and Weibull regression |
 >>  | pc.sel                | Time improvement |
 >>  | welch.tests           | Time improevement |
@@ -18,6 +57,7 @@ Date release: **28/07/2019**
 >>2. <u> **New** </u>
 >>
 >>  | 	   Function		    |                           What's new!                 |
+>>  | --------------------- | ------------------------------------------- |
 >>  |     cls     			|  Constrained least squares regression         		|
 >>  |     cluster.lm  		|  Linear regression with clustered data         		|
 >>  |     colborel.mle		|  Column-wise MLE of the Borel distribution      		|
@@ -71,8 +111,8 @@ Date release: **08/05/2019**
 >>2. <u> **New** </u>
 >>
 >>  | 	   Function		    |                           What's new!                  |
+>>  | --------------------- | ------------------------------------------- |
 >>  |              			|  														|
-
 >
 ***
 >
@@ -108,6 +148,7 @@ Date release: **08/05/2019**
 >>2. <u> **New** </u>
 >>
 >>  | 	   Function		    |                           What's new!                  |
+>>  | --------------------- | ------------------------------------------- |
 >>  | gee.reg               | Gereneralised estimating equations Gaussian regression |
 >>  | halfcauchy.mle        | MLE of the half Cauchy distribution  |
 >>  | kumar.mle             | MLE of the Kumaraswamy distribution  |
@@ -115,8 +156,6 @@ Date release: **08/05/2019**
 >>  | reg.mle.lda           | Regularised maximum likleihood linear discriminant analysis |
 >>  | walter.ci             | Confidence interval for the relative risk using Walter's method |
 >>  | welch.tests           | Many Welch t-tests |
->>  |              |  |
-
 >
 ***
 >
@@ -133,10 +172,6 @@ Date release: **08/05/2019**
 >>  | 	   Function		    |                What's new!                |
 >>  | ------------------	| ----------------------------------------- |
 >>  |              |                            |
-
-
-
-
 
 
 > ####Version 0.0.1

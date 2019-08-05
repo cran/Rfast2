@@ -134,7 +134,6 @@ vec logistic_only2(mat x, vec y, double *ini,vec yminmy,const double tol, const 
   int j;
   colvec be(2),expyhat(n),W(n,fill::zeros),x_col(n),x2_col(n),de(n);
   mat yhat(n,1),p(n,1);
-  colvec::iterator expyhatiter;
   vec F(pcols);
   double d1,d2,t,dera2=0.0,sp=0.0,derb=0.0,dera=0.0,derab=0.0,derb2=0.0;
   const double sy=ini[3],lgmy=ini[1],d0 = ini[0];
