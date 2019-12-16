@@ -69,7 +69,7 @@ Chapman and Hall/CRC.
 \author{
 Michail Tsagris
 
-R implementation and documentation: Michail Tsagris <mtsagris@yahoo.gr>
+R implementation and documentation: Michail Tsagris \email{mtsagris@yahoo.gr}.
 }
 
 %\note{
@@ -77,13 +77,15 @@ R implementation and documentation: Michail Tsagris <mtsagris@yahoo.gr>
 %}
 
 \seealso{
-\code{ \link{cluster.lm}, \link{covar}, \link{welch.tests} }
+\code{ \link{cluster.lm}, \link{fipois.reg}, \link{covar}, \link{welch.tests} }
 }
 
 \examples{
+\donttest{
 y <- rnorm(200)
 id <- sample(1:20, 200, replace = TRUE)
 x <- rnorm(200, 3)
 gee.reg(y, x, id)
+}
 }
 
