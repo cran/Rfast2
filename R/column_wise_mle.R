@@ -49,7 +49,7 @@ collogitnorm.mle <- function(x) {
   sy <- Rfast::colsums(y)
   m <- sy/n
   s <- ( Rfast::colsums(y^2) - n * m^2 ) / n
-  loglik <- Rfast::rowsums( dnorm(t(y), m, sqrt(s), log = TRUE) ) - sy
+  loglik <- Rfast::rowsums( dnorm(t(y), m, sqrt(s), log = TRUE) ) - Rfast::colsums(lx1) - Rfast::colsums(lx2)
   res <- cbind(m, n * s/(n - 1), loglik)
   colnames(res) <- c("mean", "unbiased variance", "loglik")
   res
@@ -77,5 +77,19 @@ colspml.mle <- function(x, tol = 1e-07, maxiters = 100, parallel = FALSE) {
 }
 
 
+#[export]
+colcauchy.mle <- function (x, tol = 1e-07, maxiters = 100, parallel = FALSE) {
+    res <- .Call(Rfast2_colcauchy_mle, x, tol, parallel, maxiters)
+    colnames(res) <- c("loglik", "location", "scale")
+    res
+}
+
+
+#[export]
+colbeta.mle <- function(x, tol = 1e-07, maxiters = 100, parallel = FALSE) {
+    res <- .Call(Rfast2_colbeta_mle, x, tol, parallel, maxiters)
+    colnames(res) <- c("alpha", "betag", "loglik")
+    res
+}
 
 
