@@ -1,4 +1,4 @@
-8b2fc016faa0f91e398d8716f96820df *DESCRIPTION
+e4a48932c74256da708eb413a866d6b7 *DESCRIPTION
 fef23635389f225d3408f0a90471f2a4 *NAMESPACE
 b0c9dbeb0f2c2132b9f1fd6fbee6488b *NEWS.md
 818fd9ef9ecf88ac46856ed25cd29822 *R/Intersect.R
@@ -53,7 +53,7 @@ f4625f8f104a1a37a46c0bff1f736229 *R/perm.ttest2.R
 528790aa29efee64b6fc81a1e38a8366 *R/rbeta1.R
 bccce5775c37584ae736822145e373ba *R/refmeta.R
 9674f64376c12e214da7126cf331f18c *R/reg.mle.lda.R
-49f16e333420bd327c328f99d4779e64 *R/regression_models.R
+f02d82750d1a01bef1811935b5f416a5 *R/regression_models.R
 1f7259f5669dcb4504036ac4b83a143b *R/regression_models_for_clustered_data.R
 a2e216c0bfbc5cd84a5a08d3a34920ec *R/riag.R
 81d230e299cf61036a93c674caf54ada *R/rowQuantile.R
@@ -68,7 +68,7 @@ ccc41b20033904a5e2741dbc568a9113 *R/wald.poisrat.R
 6b7dba1a6472fe9a4bee4a1e07790555 *man/Intersect.Rd
 fc22b9156172df9a44fdceea8788f048 *man/Merge.Rd
 2c715b31ec27eacd89ff08a113b0db30 *man/Quantile.Rd
-2709277c6df59f2f55179332ec4fa8d9 *man/Rfast2-package.Rd
+8f47989a2f0d6b3932c44bb0a717357d *man/Rfast2-package.Rd
 ac3f3fbc3e673deddfdefc40f5dd05e9 *man/add.term.Rd
 9b6889df3ffe00ab22f81028c6134905 *man/benchmark.Rd
 aa9e1a0f24c46c03c2c49659fd07cd40 *man/bic.regs.Rd
@@ -112,9 +112,9 @@ d620ae6d5ec423ffd18f8c9d6fbe3a83 *man/is.lower.tri.Rd
 62335b29d25c3d80090193fd0ec270c3 *man/is.skew.symmetric.Rd
 873fde2d0372bdee48b280bfb8d3d9cb *man/jack.mean.Rd
 dcae149b857fa165aa2eabf205d402cf *man/km.Rd
-c98a7b19b21fb8ec2dcae0e35b84fe93 *man/kumar.mle.Rd
+77d540e7302809be6fe47e4ba8c7f410 *man/kumar.mle.Rd
 1b0c065c543e476b3495216b2956b1bf *man/leverage.Rd
-8105e4a04e732552f8c374e814f81ec5 *man/lm.bsreg.Rd
+3fcd575404d5c887c70cd4935a685cea *man/lm.bsreg.Rd
 6120a7f4d75068a8000b2c9a2587848e *man/lm.drop1.Rd
 35264c87b3dfc0a928f7d3befeb52ecc *man/lm.parboot.Rd
 92b45727227053957ab49e5952b5d646 *man/logiquant.regs.Rd
@@ -166,7 +166,7 @@ e29a6582d8cf58b7b077297ee751c5df *src/add_term.cpp
 548f4f240fdcf72ff52f52bd94a8f9d1 *src/apply_funcs_templates.h
 015ba7e441d4f2dd2e0844ed21d9b9c2 *src/calc_qpois_regs.cpp
 17e3e76602395d2d826419fd78ffeac4 *src/calc_qpois_regs.h
-5e3b5a45b655ffa011f208e952282b51 *src/censweib_reg.cpp
+aeca75e8d0141e32e00133ecbc58060e *src/censweib_reg.cpp
 4a14b8aa9ad224d7fed3c230350e4e56 *src/col_row_utilities.cpp
 669c46c67574706f94c6a2b321d26a7a *src/colbeta_mle.cpp
 6a4a663c75d68f5b0e9bb5ab804d4f08 *src/colcauchy_mle.cpp
