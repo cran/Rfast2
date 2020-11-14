@@ -20,7 +20,7 @@ A matrix with the available data, the predictor variables.
 A vector of data. The response variable, which is categorical (factor is acceptable).  
 }
 \item{type}{
-The type of naive Bayes, "gaussian", "gaussian", "gamma", "weibull", "normlog", "laplace", "vm" or "spml". 
+The type of naive Bayes, "gaussian", "gaussian", "gamma", "weibull", "normlog", "laplace", "cauchy", "logitnorm", "beta", "vm" or "spml". 
 }
 \item{folds}{
 A list with the indices of the folds.
@@ -72,7 +72,7 @@ R implementation and documentation: Michail Tsagris \email{mtsagris@yahoo.gr}.
 %}
 
 \seealso{
-\code{\link{weibullnb.pred}, \link{mle.lda}, \link{reg.mle.lda}, \link{multinom.reg}
+\code{\link{weibullnb.pred}, \link{weibull.nb}, \link{vm.nb}, \link{vmnb.pred}, \link{mle.lda}, \link{reg.mle.lda}, \link{multinom.reg}
 }
 }
 
