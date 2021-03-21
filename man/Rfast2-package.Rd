@@ -18,14 +18,14 @@ Note 3: In general, make sure you give the correct input, in order to get the co
 \tabular{ll}{
 Package: \tab Rfast2\cr
 Type: \tab Package\cr
-Version: \tab 0.0.8 \cr
-Date: \tab 2020-11-14\cr
+Version: \tab 0.0.9 \cr
+Date: \tab 2021-03-21\cr
 License: \tab GPL-2\cr
 }
 }
 
 \author{
-Manos Papadakis <papadakm95@gmail.com>, Michail Tsagris <mtsagris@yahoo.gr>, Stefanos Fafalios <stefanosfafalios@gmail.com>, Marios Dimitriadis <kmdimitriadis@gmail.com>.
+Manos Papadakis <papadakm95@gmail.com>, Michail Tsagris <mtsagris@uoc.gr>, Stefanos Fafalios <stefanosfafalios@gmail.com>, Marios Dimitriadis <kmdimitriadis@gmail.com>.
 }
 
 \section{Maintainers }{

@@ -53,7 +53,7 @@ for comparing several gamma distributions. Environmetrics, 26(8):571-583.
 \author{
 Michail Tsagris
 
-R implementation and documentation: Michail Tsagris <mtsagris@yahoo.gr> 
+R implementation and documentation: Michail Tsagris <mtsagris@uoc.gr> 
 }
 
 %\note{
@@ -61,7 +61,7 @@ R implementation and documentation: Michail Tsagris <mtsagris@yahoo.gr>
 %}
 
 \seealso{
-\code{ \link{gammapois.mle}
+\code{ \link{zigamma.reg}, \link{gammapois.mle}
 }
 }
 

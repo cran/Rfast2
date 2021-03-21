@@ -1,11 +1,11 @@
-\name{Orthogonal matching pursuit regression}
+\name{Orthogonal matching pursuit variable selection}
 \alias{omp2}
 \title{
-Orthogonal matching pursuit regression
+Orthogonal matching variable selection
 }
 
 \description{
-Orthogonal matching pursuit regression.
+Orthogonal matching variable selection.
 }
 
 \usage{
@@ -65,7 +65,7 @@ https://arxiv.org/pdf/2004.00281.pdf
 \author{
 Michail Tsagris
 
-R implementation and documentation: Michail Tsagris <mtsagris@yahoo.gr>.
+R implementation and documentation: Michail Tsagris <mtsagris@uoc.gr>.
 }
 %\note{
 %%  ~~further notes~~
