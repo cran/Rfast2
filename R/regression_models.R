@@ -648,16 +648,47 @@ censweib.reg <- function (y, x, di, tol = 1e-07, maxiters = 100) {
 
 
 #[export]
-zigamma.reg <- function(y, x, full = FALSE, tol = 1e-07, maxiters = 100) {
- y1 <- y
- id <- which(y > 0)
- y1[id] <- 1
- prob <- Rfast::glm_logistic(x, y1, full = full, tol = tol, maxiters = maxiters)
- rownames(prob$be) <- colnames(x)
- x <- model.matrix(y~., data = as.data.frame(x) )
- mod <- Rfast2::gammareg(y[id], x[id, -1, drop = FALSE], tol = tol, maxiters = maxiters)
- colnames(mod$be) <- colnames(x) 
- list(prob = prob, mod = mod)
+zigamma.reg <- function (y, x, full = FALSE, tol = 1e-07, maxiters = 100) {
+    y1 <- y
+    id <- which(y > 0)
+    y1[id] <- 1
+    x <- model.matrix(y ~ ., data = as.data.frame(x))
+    prob <- Rfast::glm_logistic(x[, -1], y1, full = full, tol = tol, 
+        maxiters = maxiters)
+    rownames(prob$be) <- colnames(x)
+    mod <- Rfast2::gammareg(y[id], x[id, -1, drop = FALSE], tol = tol, 
+        maxiters = maxiters)
+    colnames(mod$be) <- colnames(x)
+    list(prob = prob, mod = mod)
+}
+
+
+
+
+#[export]
+fe.lmfit <- function(y, x, id) {
+  x <- as.matrix(x)
+  id <- as.integer( as.numeric(id) )
+  z <- cbind(y, x)
+  z <- z[order(id), ]
+
+  fid <- as.vector( Rfast::Table(id) )
+  m <- Rfast2::colGroup(z, id) / fid
+  z <- NULL  ##  remove z from memory
+  my <- m[, 1]    ;    mx <- m[, -1, drop = FALSE]
+  
+  m1 <- rep(my, fid)
+  y <- y - m1 
+  Mx <- NULL
+  for ( i in 1:length(fid) ) {
+    a <- matrix( rep(mx[i, , drop = FALSE], fid[i] ), nrow = fid[i], byrow = TRUE )
+    Mx <- rbind(Mx, a)
+  }
+  x <- x - Mx 
+
+  mod <- Rfast::lmfit(x, y)
+  fe <- my - mean(my) - Rfast::eachrow(mx, Rfast::colmeans(mx), oper = "-") %*% mod$be   
+  list(be = mod$be, fe = as.vector(fe), residuals = mod$residuals )
 }
 
 
