@@ -1,12 +1,12 @@
-\name{MLE of the Purkayashta distribution}
+\name{MLE of the Purkayastha distribution}
 \alias{purka.mle}
 
 \title{
-MLE of the Purkayashta distribution
+MLE of the Purkayastha distribution
 }
 
 \description{
-MLE of the Purkayashta distribution.
+MLE of the Purkayastha distribution.
 }
 
 \usage{
@@ -51,9 +51,9 @@ Communications in Statistics-Theory and Methods, 19(6): 1973-1986.
 }
 
 \author{
-Michail Tsagris
+Michail Tsagris.
 
-R implementation and documentation: Michail Tsagris <mtsagris@uoc.gr> 
+R implementation and documentation: Michail Tsagris \email{mtsagris@uoc.gr}.
 }
 
 %\note{

@@ -1,6 +1,8 @@
 \name{Trimmed mean}
 \alias{trim.mean}
 \alias{colTrimMean}
+\alias{colTrimMean.matrix}
+\alias{colTrimMean.data.frame}
 \alias{rowTrimMean}
 
 \title{Trimmed mean}
@@ -12,6 +14,8 @@ Trimmed mean.
 \usage{
 trim.mean(x, a = 0.05)
 colTrimMean(x, a = 0.05,parallel=FALSE)
+\method{colTrimMean}{matrix}(x,a = 0.05,parallel=FALSE)
+\method{colTrimMean}{data.frame}(x,a = 0.05,parallel=FALSE)
 rowTrimMean(x, a = 0.05,parallel=FALSE)
 }
 
@@ -42,9 +46,9 @@ Academic Press.
 }
 
 \author{
-Michail Tsagris and Manos Papadakis
+Michail Tsagris and Manos Papadakis.
 
-R implementation and documentation: Michail Tsagris <mtsagris@uoc.gr> and Manos Papadakis <papadakm95@gmail.com>
+R implementation and documentation: Michail Tsagris \email{mtsagris@uoc.gr} and Manos Papadakis \email{papadakm95@gmail.com}.
 }
 
 %\note{

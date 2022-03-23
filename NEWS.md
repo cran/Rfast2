@@ -1,9 +1,45 @@
 <h1 align="center"> _Rfast2_ </h1>
 
-### Version 0.1.1 
+### **Version 0.1.3**
+#### Date release: **22/03/2022**
+***
+> <u> **New** </u>
+>
+>  | 	   Function 	 |                     What's new!                    |
+>  | :----------------: | :------------------------------------------------: |
+>  | Runif   	  | Like R's runif but faster.			|
+>  | Sample   	  | Like R's Sample but faster.			|
+>  | Sample.int   | Like R's Sample.int but faster.			|
+>  | colaccs      | Column-wise accuracies    |
+>  | colsens      | Column-wise sensitivities |
+>  | colspecs     | Column-wise specificities |
+>  | colprecs     | Column-wise precisions    |
+>  | colfscores   | Column-wise F-scores      |
+>  | colfbscores  | Column-wise F-beta-scores  |
+>  | colfmis      | Column-wise Fowlkes–Mallows index  |
+>  | colfmses     | Column-wise MSEs      |
+>  | colmaes      | Column-wise MAEs      |
+>  | colpkl       | Column-wise Kullback-Leibler divergence for percentages  |
+>  | colukl       | Column-wise Kullback-Leibler divergence for non-negative or non-negative values  |
+>  | pinar1        | Poisson INAR(1) model estimation  |
+>  | colpinar1    | Column-wise Poisson INAR(1) model estimation  |
+>
+>
+> <u> **Improved** </u>(_**by speed, correctness or options**_) 
+>
+>  |	      Function	    |     What's new!     |
+>  | :-----------------: | :-----------------------------------------: |
+>  | Quantile, rowQuantile | Optimize algorithm |
+>  | colQuantile  | Optimize algorithm and new method for data.frames |
+>  | colTrimMean  | Optimize algorithm and new method for data.frames |
+
+</br>
+</br>
+
+### **Version 0.1.1**
 #### Date release: **10/10/2021**
 ***
-><u> **New** </u>
+> <u> **New** </u>
 >
 >  | 	   Function 	 |                     What's new!                    |
 >  | :----------------: | :------------------------------------------------: |
@@ -11,8 +47,10 @@
 >  | fedhc.skel   		 | Skeleton of FEDHC Bayesian network learning algorithm	|
 >  | fe.lmfit   		 | Fixed effects linear regression for panel data			|
 
-	
-### Version 0.0.8 
+</br>
+</br>
+
+### **Version 0.0.8**
 #### Date release: **16/12/2019**
 ***
 > <u> **New** </u>
@@ -42,8 +80,10 @@
 >  | spml.nb     	     | SPML NB classifier                                 |
 >  | spml.pred  	       | Prediction using SPML NB classifier                |
 
+</br>
+</br>
 
-### Version 0.0.4
+### **Version 0.0.4**
 #### Date release: **28/07/2019**
 ***
 > <u> **Improved** </u>(_**by speed, correctness or options**_) 
@@ -79,8 +119,10 @@
 >  |     mmpc2     		|  MMPC variable selection algorithm			   		|
 >  |  is.skew.symmetric  |  Checking if the given matrix is skew-symmetric. |
 
+</br>
+</br>
 
-### Version 0.0.3
+### **Version 0.0.3**
 #### Date release: **08/05/2019**
 ***
 ><u> **Improved** </u>(_**by speed, correctness or options**_) 
@@ -89,7 +131,10 @@
 >  | :-----------------: | :-----------------------------------------: |
 >  | benchmark						|	fix a bug in printing names. 			  |
 
-### Version 0.0.2
+</br>
+</br>
+
+### **Version 0.0.2**
 #### Date release: **08/05/2019**
 ***
 ><u> **New** </u>
@@ -104,8 +149,10 @@
 >  | walter.ci           | Confidence interval for the relative risk using Walter's method |
 >  | welch.tests         | Many Welch t-tests |
 
+</br>
+</br>
 
-### Version 0.0.1
+### **Version 0.0.1**
 #### Date release: **19/03/2019**
 ***
 ><u> **New** </u>
