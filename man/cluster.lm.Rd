@@ -42,7 +42,7 @@ Robust standard errors of the regression coefficients.
 }
 
 \references{
-Hansen, B. E. (2019). Econometrics. \url{https://www.ssc.wisc.edu/~bhansen/econometrics/Econometrics.pdf}
+Hansen, B. E. (2022). Econometrics. 
 }
 
 \author{
@@ -56,7 +56,7 @@ R implementation and documentation: Michail Tsagris \email{mtsagris@uoc.gr}.
 %}
 
 \seealso{
-\code{ \link{gee.reg}, \link{fe.lmfit} }
+\code{ \link{gee.reg}, \link{fe.lmfit}, \link{wild.boot} }
 }
 
 \examples{

@@ -8,6 +8,26 @@ cls <- function(y, x, R, ca) {
 }
 
 
+#[export]
+covrob.lm <- function(y, x) { 
+  x <- cbind(1, x)
+  xx <- crossprod(x)
+  br <- solve( xx )
+  xy <- as.vector( crossprod(x, y) )
+  be <- br %*% xy
+  res <- as.vector(y - x %*% be)
+  robcov <- br %*% crossprod(x * res) %*% br 
+  s <- sqrt( diag(robcov) )
+  stat <- be/s
+  info <- cbind(be, s, stat, pchisq(stat^2, 1, lower.tail = FALSE) )
+  colnames(info) <- c("Estimate", "Rob se", "Stat", "p-value")
+  nam <- colnames(x) 
+  if ( is.null( colnames(x) ) )  nam <- c("constant", paste("X", 1:(dim(x)[2] - 1), sep = "") )
+  rownames(info) <- nam
+  rownames(info)[1] <- "constant"
+  list(info = info, robcov = robcov)
+}
+
 
 #[export]
 het.lmfit <- function(x, y, type = 1) {
@@ -655,7 +675,7 @@ zigamma.reg <- function (y, x, full = FALSE, tol = 1e-07, maxiters = 100) {
     x <- model.matrix(y ~ ., data = as.data.frame(x))
     prob <- Rfast::glm_logistic(x[, -1], y1, full = full, tol = tol, 
         maxiters = maxiters)
-    rownames(prob$be) <- colnames(x)
+	if ( !full )  rownames(prob$be) <- colnames(x)
     mod <- Rfast2::gammareg(y[id], x[id, -1, drop = FALSE], tol = tol, 
         maxiters = maxiters)
     colnames(mod$be) <- colnames(x)
@@ -665,31 +685,6 @@ zigamma.reg <- function (y, x, full = FALSE, tol = 1e-07, maxiters = 100) {
 
 
 
-#[export]
-fe.lmfit <- function(y, x, id) {
-  x <- as.matrix(x)
-  id <- as.integer( as.numeric(id) )
-  z <- cbind(y, x)
-  z <- z[order(id), ]
-
-  fid <- as.vector( Rfast::Table(id) )
-  m <- Rfast2::colGroup(z, id) / fid
-  z <- NULL  ##  remove z from memory
-  my <- m[, 1]    ;    mx <- m[, -1, drop = FALSE]
-  
-  m1 <- rep(my, fid)
-  y <- y - m1 
-  Mx <- NULL
-  for ( i in 1:length(fid) ) {
-    a <- matrix( rep(mx[i, , drop = FALSE], fid[i] ), nrow = fid[i], byrow = TRUE )
-    Mx <- rbind(Mx, a)
-  }
-  x <- x - Mx 
-
-  mod <- Rfast::lmfit(x, y)
-  fe <- my - mean(my) - Rfast::eachrow(mx, Rfast::colmeans(mx), oper = "-") %*% mod$be   
-  list(be = mod$be, fe = as.vector(fe), residuals = mod$residuals )
-}
 
 
 
