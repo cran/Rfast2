@@ -1,6 +1,6 @@
-2355f0bd11b39f0cd855936844883f71 *DESCRIPTION
+f08fd22d4a65c9883f3380a45dd8681e *DESCRIPTION
 57c4a1757454080c68e4752d7ce404e1 *NAMESPACE
-b5e3dc611ea22b5d218437f0ef0cf628 *NEWS.md
+ce9d6651ad354201920efb3e3ef5a33a *NEWS.md
 818fd9ef9ecf88ac46856ed25cd29822 *R/Intersect.R
 d5ee52832dec1bb4b4ef814d4605da8b *R/Merge.R
 ff9d6cc976ef8b9400aa7dd917c46dd6 *R/Quantile.R
@@ -58,14 +58,14 @@ dde14f7c3534aa54de9d4a52e430dabe *inst/include/Rfast2.h
 4725fd1dc55134a5c6fc6f357772efc5 *inst/include/Rfast2/assertions.hpp
 61b01b7d8e0d38e8a30079ab08f3a245 *inst/include/Rfast2/helpers.hpp
 6e81d5af5c93d39b9cad2923921ce47c *inst/include/Rfast2/matrix.hpp
-e01f0b9abdcd063c996af40518962cf5 *inst/include/Rfast2/parallel.h
+738f550c9769723da73faa02975a644d *inst/include/Rfast2/parallel.h
 2cf859f1e15a87a843881caa3c06b15c *inst/include/Rfast2/templates.h
 bcec18cbee2f4b92f82cc43abfca5629 *inst/include/Rfast2/templates_rfast2.h
 696bdf4b46661b5d5bd5aa2c2a30ee07 *inst/include/Rfast2/vector.hpp
 98c9c9b7bb411f482f836d1276bfce02 *man/Intersect.Rd
 1a02e6bdb2046ad321d1e56a6a8ff1bb *man/Merge.Rd
 04f15bbb50c7fdf1851b6ce0f8bd0327 *man/Quantile.Rd
-a1ea9a2f690e7e19d1fa39d19a75dea9 *man/Rfast2-package.Rd
+4a19cc126638f58f9cbc0ef067451b84 *man/Rfast2-package.Rd
 1f4848bacccd65ff9990b2e31f0a0040 *man/Runif.Rd
 caab5e059a4e55632692d64656dcc646 *man/Sample.int.Rd
 e5e58eab3dd627b5b3ba483912189ebf *man/add.term.Rd
@@ -97,7 +97,7 @@ f6338a767de6c2ebbb194b57aebb02d6 *man/colmses.Rd
 5a8d9e3efed67933edce01395bef72bb *man/cor_test.Rd
 edd6f0e1165344fee89faf238f999891 *man/covar.Rd
 61938e334a0b79df8eff83c897117ec6 *man/covdist.Rd
-3d2fb59f2a847d55a402608530057422 *man/covequal.Rd
+35652c223acf11d09519828bcb58caf1 *man/covequal.Rd
 27d343ed714f2a589046913b295a6eea *man/covlikel.Rd
 82347858176e4133aa67c88e0145e7cf *man/covrob.lm.Rd
 ccf0ea244326d4186cd69545e9b5c941 *man/dcora.Rd
