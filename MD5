@@ -1,6 +1,6 @@
-e67857ee94298b47c47ce63be5727512 *DESCRIPTION
+3171f5f2400d57b87f2390a373bf73af *DESCRIPTION
 d5c1bf73ce657478b218964d14272e30 *NAMESPACE
-6f3a1a1d1e7511834665208029ea64bc *NEWS.md
+0e66ff5d1b2d8d0ca1ca3ac4a1e27f75 *NEWS.md
 818fd9ef9ecf88ac46856ed25cd29822 *R/Intersect.R
 d5ee52832dec1bb4b4ef814d4605da8b *R/Merge.R
 ff9d6cc976ef8b9400aa7dd917c46dd6 *R/Quantile.R
@@ -22,7 +22,7 @@ c84398fa0a344f34c2c4099dbb64c2b1 *R/depth.mahala.R
 aba77f157a922f55ff3356af93538662 *R/diffic_and_discrim.R
 1da6cea6638ffd6f54b79065bb142169 *R/directional_mle.R
 a47fc300160d904a6ec7b5e6d6ce6087 *R/empirical.entropy.R
-ac0ec6a6653dff2d9eba96ef2ab664a6 *R/eqdist.etest.R
+f6f61218135c415cc1d316dd1e774ab0 *R/eqdist.etest.R
 f66e967db51633a0dd1366d0d7667e50 *R/fedhc_and_mmhc_skeleton.R
 6dde43ace1678619eb90c7e5e78cc46d *R/fp.R
 5619ab60de56d30ed8c628673b9d48e0 *R/frechet.nn.R
@@ -61,7 +61,7 @@ eaaddc6a09b5e39b249b7b8e3cf6a2a8 *R/trim.mean.R
 87fcc12f8f609df54652fdc4c0c72a0a *R/walter.ci.R
 743fbd9c444766257db6bf21eaf50dd9 *R/wild.boot.R
 727af3b68c611e65fce78fc21c1d282e *README.md
-50cb5262eb809a549ae2e5874c5bca95 *build/partial.rdb
+427e1227655fd4b1c4758d113e0d465f *build/partial.rdb
 dde14f7c3534aa54de9d4a52e430dabe *inst/include/Rfast2.h
 4725fd1dc55134a5c6fc6f357772efc5 *inst/include/Rfast2/assertions.hpp
 e2b2ca4f056180ea28006c2f0dfe22e0 *inst/include/Rfast2/helpers.hpp
@@ -116,7 +116,7 @@ ccf0ea244326d4186cd69545e9b5c941 *man/dcora.Rd
 81eb1bb2826899809d8506014be75388 *man/diffic.Rd
 bc8358dc95b8e09c9e55cec0f2b727a7 *man/el.cor.test.Rd
 942e8c2c832d39e1a5ce1a5732c68889 *man/empirical.entropy.Rd
-ff2e412805ce063454aeb98889fa25f3 *man/eqdist.etest.Rd
+1386c044dc1d600f0ac06316a947cdd6 *man/eqdist.etest.Rd
 c6b1d6d9fe127f0360a4d4a320a5e20e *man/fbed.reg.Rd
 5336213628245f7e7b9a6b3bfcd265cd *man/fe.lmfit.Rd
 36a303ddf69ddc3414a1ed6ae05e3ce0 *man/fedhc.skel.Rd

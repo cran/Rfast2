@@ -4,6 +4,20 @@
 
 </h1>
 
+### **Version 0.1.5.4 - Asclepius**
+
+------------------------------------------------------------------------
+
+> <h3>**New**</h3>
+>
+> | Function |                                     What's new!                                     |
+> |:--------:|:-----------------------------------------------------------------------------------:|
+> | bessel   | Bessel function  |
+> | eqdist.etest   | Fix bug.  |
+
+
+</br> </br>
+
 ### **Version 0.1.5.3 - Asclepius**
 
 ------------------------------------------------------------------------
@@ -21,7 +35,6 @@
 > | lm.nonparboot   | Deprecated.  |
 > | perm.ttest1   | Deprecated.  |
 > | perm.ttest2   | Deprecated.  |
-> | eqdist.etest   | Energy based equality of distributions test  |
 
 
 </br> </br>
