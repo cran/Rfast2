@@ -1,6 +1,6 @@
-3171f5f2400d57b87f2390a373bf73af *DESCRIPTION
+d11b1ea513ff1c308f53380e7932a0a6 *DESCRIPTION
 d5c1bf73ce657478b218964d14272e30 *NAMESPACE
-0e66ff5d1b2d8d0ca1ca3ac4a1e27f75 *NEWS.md
+e6bc2c449c351010c44313c52e272dcb *NEWS.md
 818fd9ef9ecf88ac46856ed25cd29822 *R/Intersect.R
 d5ee52832dec1bb4b4ef814d4605da8b *R/Merge.R
 ff9d6cc976ef8b9400aa7dd917c46dd6 *R/Quantile.R
@@ -61,7 +61,7 @@ eaaddc6a09b5e39b249b7b8e3cf6a2a8 *R/trim.mean.R
 87fcc12f8f609df54652fdc4c0c72a0a *R/walter.ci.R
 743fbd9c444766257db6bf21eaf50dd9 *R/wild.boot.R
 727af3b68c611e65fce78fc21c1d282e *README.md
-427e1227655fd4b1c4758d113e0d465f *build/partial.rdb
+0b1f1a18149cbe50279dbda06eaf530d *build/partial.rdb
 dde14f7c3534aa54de9d4a52e430dabe *inst/include/Rfast2.h
 4725fd1dc55134a5c6fc6f357772efc5 *inst/include/Rfast2/assertions.hpp
 e2b2ca4f056180ea28006c2f0dfe22e0 *inst/include/Rfast2/helpers.hpp
@@ -212,7 +212,7 @@ ba001eea5f75538f1599a45b284c4f8c *src/apply_funcs_templates.h
 312d69d45a824d240347418682cd39dc *src/colbeta_mle.cpp
 988cf0f3fe6ce94059fe5cdf00269357 *src/colcauchy_mle.cpp
 360466fc090f70e58d23a8eba5c3259b *src/colspml_mle.cpp
-32d825a47244bd9cf25b59d65d9fcfe2 *src/cts.cpp
+912081b555c38cf96acb9e4871ed16ff *src/cts.cpp
 42aada85400677446abc85e52f0c541d *src/cts.h
 af9ec71ca010cc58dfb770d66fcf10b6 *src/fbed_reg.cpp
 f5bbec3962dd7908882004dbdc0a1d8f *src/fedhc_skeleton.cpp
@@ -221,9 +221,9 @@ f5bbec3962dd7908882004dbdc0a1d8f *src/fedhc_skeleton.cpp
 7ec5c77f6950bba26e4ee3007e1cc186 *src/gamma_regs.cpp
 76234eb8a063a5dd1ff5ff66661a2086 *src/init.c
 900743188cd9488971884aceae185034 *src/is_symmetric.cpp
-fe278f22b24a5d65c860ad3d23681608 *src/kernel.cpp
+c0c395c04b0a045dc26ddaeeb2bd2839 *src/kernel.cpp
 d820a7436babd18ef7d2ce091279cbc8 *src/mmhc_skeleton.cpp
-cc438ff8ce4c307cb015e2580f7a39f3 *src/mmp_c.cpp
+38587866275623f26c9c9e39fc6a65f7 *src/mmp_c.cpp
 000ab1cda7b56e93986dd48964aeb295 *src/mmp_c.h
 9291f93b07a94470a42ce58de1a72971 *src/mmpc2.cpp
 188073d4a1526618b03abb47d68ac8f8 *src/mn.cpp
@@ -236,7 +236,7 @@ a164059ac6b6858ba601e0c7339c6a51 *src/multinom_reg.cpp
 750daa1588d7e0126fec9f40d3768fc5 *src/reg_lib_helper.cpp
 6e93259a14f26460e3afcdc32f01910b *src/reg_lib_helper.h
 b9ccd2c7a9a0f1a6f1bce26b9079ba71 *src/sf.cpp
-e4e2d46b72a18ad19b59f550f2b6af00 *src/skel_helper.cpp
+a55a8f21c54fd4eedfc4a6615fce06a8 *src/skel_helper.cpp
 c9f49f403d2b1492c37974d61662ad41 *src/skel_helper.h
 30b9b3570a801927d625a3690b453c63 *src/system_files.h
 e2ab050a82c47d189ff149c466f5a648 *src/univariate_mle.cpp
