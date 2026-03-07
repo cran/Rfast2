@@ -50,7 +50,7 @@ namespace Rfast
 			for (DataFrame::iterator s = x.begin(); s < x.end(); ++s)
 			{
 				colvec y;
-				int i;
+				long i;
 #ifdef _OPENMP
 #pragma omp critical
 #endif
@@ -109,7 +109,7 @@ namespace Rfast
 			for (DataFrame::iterator s = x.begin(); s < x.end(); ++s)
 			{
 				colvec y;
-				int i;
+				long i;
 #ifdef _OPENMP
 #pragma omp critical
 #endif

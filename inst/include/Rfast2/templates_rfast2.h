@@ -42,7 +42,7 @@ SEXP group_col_med_h(SEXP x, SEXP gr, const int length_unique)
     SEXP f = PROTECT(Rf_allocMatrix(TYPEOF(x), length_unique, ncl));
     int *ggr = INTEGER(gr);
     T *ff = Rfast::asPtr<T>(f), *xx = Rfast::asPtr<T>(x);
-    vector<vector<double>> eachcol_mat(length_unique, vector<double>());
+    vector<vector<T>> eachcol_mat(length_unique, vector<T>());
     for (int j = 0; j < length_unique * ncl; ++j)
     {
         ff[j] = 0;
@@ -57,8 +57,8 @@ SEXP group_col_med_h(SEXP x, SEXP gr, const int length_unique)
         }
         for (int i = 0; i < length_unique; ++i)
         {
-            vector<double> &tmp = eachcol_mat[i];
-            ff[i + col_index_f] = med_helper<vector<double>>(tmp.begin(), tmp.end());
+            vector<T> &tmp = eachcol_mat[i];
+            ff[i + col_index_f] = med_helper<vector<T>>(tmp.begin(), tmp.end());
             tmp.clear();
         }
     }

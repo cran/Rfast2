@@ -197,7 +197,7 @@ double sum_pow(colvec x,const double p){
 //Design_matrix
 umat design_matrix_helper_big(CharacterVector x) {
   int i=0;
-  const int n=x.size();
+  const auto n=x.size();
   CharacterVector tmp=sort_unique(x);
   CharacterVector::iterator xx=x.begin(),leksi_bg,leksi_en;
   umat Final(n,tmp.size(),fill::zeros);
@@ -330,7 +330,7 @@ NumericVector toNumbers(string x,char spliter){
 
 //bincomb
 IntegerVector combine(IntegerVector x,IntegerVector y){
-  const int n=x.size(),p=y.size(),z=n+p;
+  const auto n=x.size(),p=y.size(),z=n+p;
   IntegerVector f(z);
   f[Range(0,n-1)]=x;
   f[Range(n,z-1)]=y;

@@ -47,7 +47,7 @@ namespace Random
 				// Advance internal state
 				rng.state = oldstate * 6364136223846793005ULL + (rng.inc | 1);
 				// Calculate output function (XSH RR), uses old state for max ILP
-				result_type xorshifted = ((oldstate >> 18u) ^ oldstate) >> 27u;
+				result_type xorshifted = static_cast<result_type>(((oldstate >> 18u) ^ oldstate) >> 27u);
 				result_type rot = oldstate >> 59u;
 				return (xorshifted >> rot) | (xorshifted << ((-rot) & 31));
 			}
@@ -82,8 +82,8 @@ namespace Random
 		result_type operator()()
 		{
 			auto index = (size_t)this->pcg32_random_r() % this->indices.size();
-			auto res = this->indices[index];
-			this->remove_index(index);
+			result_type res = static_cast<result_type>(this->indices[index]);
+			this->remove_index(static_cast<result_type>(index));
 			return res;
 		}
 	};

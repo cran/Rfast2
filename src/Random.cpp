@@ -42,7 +42,7 @@ NumericVector Sample(NumericVector x, const unsigned int size, const bool replac
 	NumericVector res(size);
 	if (replace)
 	{
-		uniform<integer, true> rng(0, x.size() - 1);
+		uniform<integer, true> rng(0, static_cast<uniform<integer, true>::result_type>(x.size() - 1));
 		for (unsigned int i = 0; i < size; ++i)
 		{
 			res[i] = x[rng()];
@@ -50,7 +50,7 @@ NumericVector Sample(NumericVector x, const unsigned int size, const bool replac
 	}
 	else
 	{
-		uniform<integer> rng(0, x.size() - 1);
+		uniform<integer> rng(0, static_cast<uniform<integer>::result_type>(x.size() - 1));
 		for (unsigned int i = 0; i < size; ++i)
 		{
 			res[i] = x[rng()];

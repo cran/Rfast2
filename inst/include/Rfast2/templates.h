@@ -188,7 +188,7 @@ void min_max(T *start,T *end,T &mn, T &mx){
 */
 template<typename T>
 void maximum(T *start,T *end,T &mx){
-    double xxx;
+    T xxx;
     mx=*start;
     start++;
     for(;start!=end;++start){
@@ -205,7 +205,7 @@ void maximum(T *start,T *end,T &mx){
 */
 template<typename T>
 void minimum(T *start,T *end,T &mn){
-    double xxx;
+    T xxx;
     mn=*start;
     start++;
     for(;start!=end;++start){
@@ -583,7 +583,7 @@ Ret cross_x(T x){
 template<typename Ret,typename T>
 Ret design_matrix_helper(T x) {
     int i=0;
-    const int n=x.size();
+    const auto n=x.size();
     T tmp=sort_unique(x);
     typename T::iterator xx=x.begin(),leksi_bg,leksi_en;
     Ret Final(n,tmp.size());
@@ -817,7 +817,7 @@ void myoperator(T f[],T &x,T *y,int &len){
 
 template<typename T>
 void as_integer_h_sorted(vector<T> x,IntegerVector &f,const int init,const T val){
-    const int n=x.size();
+    const auto n=x.size();
     int i,j=0,c=init;
     sort(x.begin(),x.end());
     auto v=x[j];
@@ -835,7 +835,7 @@ void as_integer_h_sorted(vector<T> x,IntegerVector &f,const int init,const T val
 
 template<typename T>
 void as_integer_h(vector<T> x,IntegerVector &f,const int init,const T val){
-    const int n=x.size();
+    const auto n=x.size();
     int i,j=0,c=init;
     vector<int> ind=Order< vector<int>,vector<T> >(x,false,false,0); // diorthoseiii
     x.push_back(val);
@@ -853,7 +853,7 @@ void as_integer_h(vector<T> x,IntegerVector &f,const int init,const T val){
 
 template<typename T>
 void as_integer_h_with_names(vector<T> x,List &L,const int init,const T val){
-    const int n=x.size()+1;
+    const auto n=x.size()+1;
     int i,j=0,c=init;
     vector<int> ind=Order< vector<int>,vector<T> >(x,false,false,0); // diorthoseiii
     x.push_back(val);
@@ -918,7 +918,7 @@ vector<int> table_simple(vector<T> x){
 
 template<typename T>
 void table2_like_r(vector<T> x,vector<T> y,IntegerMatrix &f,const T val){
-    const int n=x.size();
+    const auto n=x.size();
     int mx_x,mx_y;
     IntegerVector ix(n),iy(n);
     as_integer_h<T>(x,ix,0,val);
@@ -934,7 +934,7 @@ void table2_like_r(vector<T> x,vector<T> y,IntegerMatrix &f,const T val){
 
 template<typename T>
 void table2_like_r_with_names(vector<T> x,vector<T> y,List &L,const T val){
-    const int n=x.size();
+    const auto n=x.size();
     int mx_x,mx_y;
     List lx,ly;
     as_integer_h_with_names<T>(x,lx,0,val);
@@ -953,7 +953,7 @@ void table2_like_r_with_names(vector<T> x,vector<T> y,List &L,const T val){
 
 template<typename Ret,typename T,typename I>
 Ret rank_mean(T x,const bool descend){
-    const int n=x.size(),n_1=n+1;
+    const auto n=x.size(),n_1=n+1;
     int i,j=0;
     x.resize(n_1);
     x[n]=std::numeric_limits<typename T::value_type>::max();
@@ -977,7 +977,7 @@ Ret rank_mean(T x,const bool descend){
 
 template<typename Ret,typename T,typename I>
 Ret rank_max(T x,const bool descend){
-    const int n=x.size(),n_1=n+1;
+    const auto n=x.size(),n_1=n+1;
     int i,j=0;
     x.resize(n_1);
     x[n]=std::numeric_limits<typename T::value_type>::max();
@@ -1000,7 +1000,7 @@ Ret rank_max(T x,const bool descend){
 
 template<typename Ret,typename T,typename I>
 Ret rank_min(T x,const bool descend){
-    const int n=x.size(),n_1=n+1;
+    const auto n=x.size(),n_1=n+1;
     int i,j=0;
     x.resize(n_1);
     x[n]=std::numeric_limits<typename T::value_type>::max();
@@ -1082,8 +1082,8 @@ template<Binary_Function oper,class T,class RETURN_TYPE,int type>
 SEXP eachrow_helper(SEXP x,SEXP y){
     int ncol=Rf_ncols(x),nrow=Rf_nrows(x);
     SEXP mat=PROTECT(Rf_allocMatrix(type,nrow,ncol));
-    T *xx=(T *) DATAPTR(x),*xend=xx+ncol*nrow,*yy=(T *) DATAPTR(y),yvalue,*x3;
-    RETURN_TYPE *m=(RETURN_TYPE*)DATAPTR(mat);
+    T *xx=(T *) DATAPTR_RO(x),*xend=xx+ncol*nrow,*yy=(T *) DATAPTR_RO(y),yvalue,*x3;
+    RETURN_TYPE *m=(RETURN_TYPE*)DATAPTR_RO(mat);
     for(;xx!=xend;++yy){
         yvalue=*yy;
         for(x3=xx,xx+=nrow;x3!=xx;++x3,++m){

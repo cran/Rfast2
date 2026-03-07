@@ -37,7 +37,7 @@ namespace Rfast
 		if (nprobs > std::log2(x.size()))
 		{ // k > log2(n) tote allazo algorithmo
 			// Rcout<<__LINE__<<"\n";
-			const int mxelem = (x.size() - 1) * (*max_element(probs.begin(), probs.end())) + 1;
+			const size_t mxelem = static_cast<size_t>((x.size() - 1) * (*max_element(probs.begin(), probs.end())) + 1);
 			// Rcout<<__LINE__<<"\n";
 			std::nth_element(x.begin(), x.begin() + mxelem, x.end());
 			// Rcout<<__LINE__<<"\n";
@@ -45,8 +45,8 @@ namespace Rfast
 			// Rcout<<__LINE__<<"\n";
 			for (unsigned int i = 0; i < nprobs; ++i)
 			{
-				double h = (x.size() - 1) * probs[i] + 1;
-				int hf = h;
+				double h = static_cast<double>(x.size() - 1) * probs[i] + 1;
+				int hf = static_cast<int>(h);
 				auto a = x[hf - 1];
 				f[i] = a + (h - hf) * (x[hf] - a);
 			}
@@ -58,9 +58,9 @@ namespace Rfast
 			for (unsigned int i = 0; i < nprobs; ++i)
 			{
 				// Rcout<<__LINE__<<"\n";
-				double h = (x.size() - 1) * probs[i] + 1;
+				double h = static_cast<double>(x.size() - 1) * probs[i] + 1;
 				// Rcout<<__LINE__<<"\n";
-				int hf = h;
+				int hf = static_cast<int>(h);
 				// Rcout<<__LINE__<<"\n";
 				double a, b;
 				// Rcout<<__LINE__<<"\n";
@@ -96,9 +96,9 @@ namespace Rfast
 		Assertion::is_iterable<T>::check_concept();
 		Assertion::has_size<T>::check_concept();
 
-		const int n = x.size();
-		int b1 = a * n;
-		int b11 = std::ceil(b1);
+		const int n = static_cast<const int>(x.size());
+		int b1 = static_cast<int>(a * n);
+		int b11 = static_cast<int>(std::ceil(b1));
 		b1 = (b1 == b11) ? b11 + 1 : b11;
 		
 		const double a1 = nth_simple<T>(x, b1, false, parallel);

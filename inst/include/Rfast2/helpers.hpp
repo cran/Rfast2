@@ -226,7 +226,7 @@ template <class T, class HELPER,
 void setResultParallelSection(List &f,const bool na_rm, DataFrame::iterator s, F cmp)
 {
 	T y;
-	int i;
+	long i;
 #ifdef _OPENMP
 	#pragma omp critical
 	{
@@ -252,7 +252,7 @@ template <class T, class HELPER, Mfunction<void, typename T::iterator, typename 
 void setResultParallelSection(List &f,const bool na_rm, DataFrame::iterator s)
 {
 	T y;
-	int i;
+	long i;
 #ifdef _OPENMP
 	#pragma omp critical
 	{
@@ -279,7 +279,7 @@ template <class T, class HELPER, Mfunction<typename T::iterator, typename T::ite
 void parallelSingleIteratorWithoutCopy(List &f, DataFrame::iterator s)
 {
 	T y;
-	int i;
+	long i;
 #ifdef _OPENMP
 	#pragma omp critical
 	{
